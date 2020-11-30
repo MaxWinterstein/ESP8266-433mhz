@@ -48,6 +48,17 @@ Pimatic device config could look like this:
 },
 ```
 
+Home Assistant device config could look like this:
+```yaml
+switch:
+  - platform: command_line
+    switches:
+      tv_rack:
+        command_on: "/usr/bin/curl -X GET 'http://192.168.1.94/changestate?housecode=10001&socketcode=10000&state=on'"
+        command_off: "/usr/bin/curl -X GET 'http://192.168.1.94/changestate?housecode=10001&socketcode=10000&state=off'"
+        friendly_name: TV Rack
+```
+
 ## Credits
 This is mostly inspired by [alexbloggt.com](https://alexbloggt.com/funksteckdosensteuerung-mit-esp8266/) - thanks for your work!  
 Also thanks to [techtutorialsx.com](https://techtutorialsx.com/2016/10/22/esp8266-webserver-getting-query-parameters/) for the explanation of arg usage!
